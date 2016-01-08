@@ -1,0 +1,40 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+#post {
+
+  height: 100%;
+
+}
+
+
+
+p{
+margin: 4%;
+
+  height: 70px;
+
+  }
+
+#test {
+  background-color: turquoise ;
+
+
+}
+
+.back_texture{
+
+  background-image: url(asset-path('back_texture.jpg'));
+  margin: 6px;
+}
+
+#space{
+
+  width: 50%;
+}
+
+.article_body {
+
+  Height: 30px;
+}

@@ -1,0 +1,24 @@
+<nav class="navbar navbar-inverse">
+ <div class="container-fluid">
+  <div class="navbar-header">
+   <a class="navbar-brand" href="#">Twitter Clone</a>
+  </div>
+  <ul class="nav navbar-nav">
+   <li class="active"><a href="#">Home</a></li>
+   <li><a href='categories'>Channels</a></li>
+   <li><a href="#">Page 2</a></li>
+   <li><a href="#">Page 3</a></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+
+   <% if user_signed_in? %>
+   <li> <%= link_to('<span class="glyphicon glyphicon-user">SignOut</span>'.html_safe, destroy_user_session_path, :method => :delete) %></li>
+   <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Settings</a></li>
+
+       <%else%>
+       <li> <%= link_to('<span class="glyphicon glyphicon-user">SignIn</span>'.html_safe, new_user_session, :method => :delete) %></li>
+
+       <% end %>
+  </ul>
+ </div>
+</nav>

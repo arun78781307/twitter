@@ -1,0 +1,51 @@
+<%= render 'news/header' %>
+
+<h1>Listing Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories_user.each do |category| %>
+     <% @subscribed_channel << category.id%>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.description %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%=@subscribed_channel%>
+<%@not_subscribe=0 %>
+<% if @subscribed_channel.empty? %>
+
+
+    <% @not_subscribed=Category.all%>
+
+   <% else %>
+
+    <% @not_subscribed=Category.where('id NOT IN (?)',@subscribed_channel)%>
+
+    <%end%>
+
+<%= form_for @user, url: {action: 'subscribe'}, html: {class: "nifty_form"} do |f| %>
+    <%= collection_check_boxes(:categ, :i,@not_subscribed, :id, :name) %>
+    <%= f.submit 'Subscribe' %>
+<% end %>
+
+
+
+
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>

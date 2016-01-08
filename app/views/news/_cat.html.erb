@@ -1,0 +1,8 @@
+<div id="catgoryform">
+
+ <%= form_for @category, url: 'subscribe'  do |f| %>
+     <%= f.text_field :name %>
+     <%= f.text_area :description, size: "60x12" %>
+     <%= f.submit 'Create' %>
+ <% end %>
+</div>
